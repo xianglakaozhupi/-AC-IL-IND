@@ -1,0 +1,77 @@
+
+[ moleculetype ]
+; name          nrexcl
+BLZ       3
+
+[ atoms ]
+;  Index   type   residue  resname   atom        cgnr     charge       mass
+     1     n3         1      BLZ     N1            1    -0.850758951   14.006703
+     2     hn         1      BLZ     H2            2    -0.074400348    1.007941
+     3     hn         1      BLZ     H3            3    -0.074400348    1.007941
+     4     c3         1      BLZ     C4            4     0.303849521   12.010736
+     5     h1         1      BLZ     H5            5     0.285785994    1.007941
+     6     h1         1      BLZ     H6            6     0.265015028    1.007941
+     7     c2         1      BLZ     C7            7     0.600874494   12.010736
+     8     o          1      BLZ     O8            8    -0.656811443   15.999405
+     9     o          1      BLZ     O9            9    -0.599153947   15.999405
+ 
+[ bonds ]
+; atom_i  atom_j  functype      r0 (nm)    k (kJ/mol/nm^2)
+    1       2         1        0.101646     3.806772E+05     ; N1-H2, mSeminario method
+    1       3         1        0.102340     3.561981E+05     ; N1-H3, mSeminario method
+    1       4         1        0.147593     1.726778E+05     ; N1-C4, mSeminario method
+    4       5         1        0.109652     2.766220E+05     ; C4-H5, mSeminario method
+    4       6         1        0.109250     2.872179E+05     ; C4-H6, mSeminario method
+    4       7         1        0.156308     1.217178E+05     ; C4-C7, mSeminario method
+    7       8         1        0.124911     4.970937E+05     ; C7-O8, mSeminario method
+    7       9         1        0.125581     4.655741E+05     ; C7-O9, mSeminario method
+ 
+[ angles ]
+; atom_i  atom_j  atom_k  functype    a0 (Deg.)  k (kJ/mol/rad^2)
+    2       1       3         1       102.928      3.203611E+02     ; H2-N1-H3, mSeminario method
+    2       1       4         1       107.356      5.902650E+02     ; H2-N1-C4, mSeminario method
+    3       1       4         1       102.613      5.127906E+02     ; H3-N1-C4, mSeminario method
+    1       4       5         1       109.196      6.072187E+02     ; N1-C4-H5, mSeminario method
+    1       4       6         1       110.496      4.906166E+02     ; N1-C4-H6, mSeminario method
+    1       4       7         1       114.782      9.365894E+02     ; N1-C4-C7, mSeminario method
+    5       4       6         1       106.323      2.731743E+02     ; H5-C4-H6, mSeminario method
+    5       4       7         1       106.816      3.416002E+02     ; H5-C4-C7, mSeminario method
+    6       4       7         1       108.834      5.143085E+02     ; H6-C4-C7, mSeminario method
+    4       7       8         1       115.308      4.170502E+02     ; C4-C7-O8, mSeminario method
+    4       7       9         1       115.468      4.073894E+02     ; C4-C7-O9, mSeminario method
+    8       7       9         1       129.201      4.836316E+02     ; O8-C7-O9, mSeminario method
+ 
+[ dihedrals ] ; propers
+; atom_i  atom_j  atom_k  atom_l  functype   d0 (Deg.)   k (kJ/mol/rad^2)    ; Case of functype=2
+; atom_i  atom_j  atom_k  atom_l  functype  phase (Deg.)  kd (kJ/mol) pn     ; Case of functype=9
+    1       4       7       8         9         0.000       0.00000    2     ; N1-C4-C7-O8, prebuilt X-c2-c3-X
+    1       4       7       9         9         0.000       0.00000    2     ; N1-C4-C7-O9, prebuilt X-c2-c3-X
+    2       1       4       5         9         0.000       1.25520    3     ; H2-N1-C4-H5, prebuilt X-c3-n3-X
+    2       1       4       6         9         0.000       1.25520    3     ; H2-N1-C4-H6, prebuilt X-c3-n3-X
+    2       1       4       7         9         0.000       1.25520    3     ; H2-N1-C4-C7, prebuilt X-c3-n3-X
+    3       1       4       5         9         0.000       1.25520    3     ; H3-N1-C4-H5, prebuilt X-c3-n3-X
+    3       1       4       6         9         0.000       1.25520    3     ; H3-N1-C4-H6, prebuilt X-c3-n3-X
+    3       1       4       7         9         0.000       1.25520    3     ; H3-N1-C4-C7, prebuilt X-c3-n3-X
+    5       4       7       8         9         0.000       0.00000    2     ; H5-C4-C7-O8, prebuilt X-c2-c3-X
+    5       4       7       9         9         0.000       0.00000    2     ; H5-C4-C7-O9, prebuilt X-c2-c3-X
+    6       4       7       8         9         0.000       0.00000    2     ; H6-C4-C7-O8, prebuilt X-c2-c3-X
+    6       4       7       9         9         0.000       0.00000    2     ; H6-C4-C7-O9, prebuilt X-c2-c3-X
+
+[ pairs ] ; Yielded based on rotatable dihedrals
+; atom_i  atom_j  functype
+    1       8         1     ; N1-C4-C7-O8
+    1       9         1     ; N1-C4-C7-O9
+    2       5         1     ; H2-N1-C4-H5
+    2       6         1     ; H2-N1-C4-H6
+    2       7         1     ; H2-N1-C4-C7
+    3       5         1     ; H3-N1-C4-H5
+    3       6         1     ; H3-N1-C4-H6
+    3       7         1     ; H3-N1-C4-C7
+    5       8         1     ; H5-C4-C7-O8
+    5       9         1     ; H5-C4-C7-O9
+    6       8         1     ; H6-C4-C7-O8
+    6       9         1     ; H6-C4-C7-O9
+ 
+[ dihedrals ] ; impropers
+; atom_i  atom_j  atom_k  atom_l  functype  phase (Deg.)  kd (kJ/mol)  pn
+    4       8       7       9         4       180.000       4.60240    2     ; C4-O8-C7-O9, guess (same as GAFF X -X -ca-ha)
